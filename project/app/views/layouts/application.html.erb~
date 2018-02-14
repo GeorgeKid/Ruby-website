@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>产品发布系统 </title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="banner">
+<h2 align="center">产品发布系统</h2>
+</div>
+<div id="left-panel">
+<%= link_to "显示所有产品",products_path %><br/>
+<br/>
+<%= link_to "查看产品类型",product_types_path %>
+</div>
+
+<div id="main-panel">
+
+<%= yield %>
+</div>
+
+<div id="footer">
+Copyright George &copy; 2016
+</div>
+
+</body>
+</html>

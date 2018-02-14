@@ -1,0 +1,10 @@
+<%= div_for comment do %>
+  <p>
+  <strong>Posted 
+     <%= time_ago_in_words(comment.created_at) %>
+  </strong><br />
+<%= comment.comment_body %>
+<%= link_to "删除该条评论", [@product, comment], :method => :delete, data: {:confirm => "Are you sure?"} %>
+  </p>
+<% end %>
+

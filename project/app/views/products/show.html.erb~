@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>产品名称:</strong>
+  <%= @product.product_name %>
+</p>
+
+<p>
+  <b>产品类型:</b>
+  <%= @product.product_type.product_type_name if @product.product_type %>
+</p>
+
+<p>
+  <strong>产品描述:</strong>
+  <%= @product.product_description %>
+</p>
+
+<%= link_to '编辑', edit_product_path(@product) %> |
+<%= link_to '返回', products_path %>
+
+<h3>评论</h3>
+<div id="comments">
+<%= render :partial => @product.comments %>
+</div>
+
+<%= form_for [@product, Comment.new] do |f| %>
+<% if @comment.errors&@comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :content, "新评论" %> <br />
+    <%= f.text_area :comment_body, :rows => 5 %>
+  </p>
+  <p><%= f.submit "添加评论" %></p>
+<% end %>
+

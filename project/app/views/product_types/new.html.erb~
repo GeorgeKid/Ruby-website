@@ -1,0 +1,5 @@
+<h2>新的产品类型</h2>
+
+<%= render 'form' %>
+
+<%= link_to '返回', product_types_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>产品类型名称:</strong>
+  <%= @product_type.product_type_name %>
+</p>
+
+<p>
+  <b>该类型的产品有:</b>
+  <%= (@product_type.products.collect { |product|  product.product_name  }).join(", ") %>
+</p>
+
+<%= link_to '编辑', edit_product_type_path(@product_type) %> |
+<%= link_to '返回', product_types_path %>
